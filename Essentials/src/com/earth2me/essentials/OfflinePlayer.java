@@ -1686,6 +1686,11 @@ public class OfflinePlayer implements Player {
 
     /** {@inheritDoc} */
     @Override
+    public void sendSignChange(Location loc, String[] lines, DyeColor dyeColor) throws IllegalArgumentException {
+
+    }
+
+    @Override
     public Location getBedSpawnLocation() {
         return null;
     }

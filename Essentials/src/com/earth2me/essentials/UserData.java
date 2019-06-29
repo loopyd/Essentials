@@ -1224,13 +1224,14 @@ public abstract class UserData extends PlayerExtension implements IConf {
      * @return a long.
      */
     public long getKitTimestamp(String name) {
-        name = name.replace('.', '_').replace('/', '_');
+        name = name.replace('.', '_').replace('/', '_').toLowerCase(Locale.ENGLISH);
         if (kitTimestamps != null && kitTimestamps.containsKey(name)) {
             return kitTimestamps.get(name);
         }
-        return 0l;
+        return 0L;
     }
 
+<<<<<<< HEAD
     /**
      * <p>setKitTimestamp.</p>
      *
@@ -1239,6 +1240,11 @@ public abstract class UserData extends PlayerExtension implements IConf {
      */
     public void setKitTimestamp(final String name, final long time) {
         kitTimestamps.put(name.toLowerCase(Locale.ENGLISH), time);
+=======
+    public void setKitTimestamp(String name, final long time) {
+        name = name.replace('.', '_').replace('/', '_').toLowerCase(Locale.ENGLISH);
+        kitTimestamps.put(name, time);
+>>>>>>> upstream/2.x
         config.setProperty("timestamps.kits", kitTimestamps);
         config.save();
     }
